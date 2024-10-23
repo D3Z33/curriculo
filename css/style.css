@@ -1,4 +1,4 @@
-/* Fonte mais técnica e moderna */
+/* Fonte técnica e moderna */
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500&display=swap');
 
 #welcome-message {
@@ -24,7 +24,7 @@
   margin: 0 5px;
 }
 
-/* Animação para as palavras caindo do céu */
+/* Animação para as palavras caindo */
 @keyframes wordDrop {
   0% {
     opacity: 0;
@@ -36,7 +36,7 @@
   }
 }
 
-/* Diferencia o tempo de queda para cada palavra */
+/* Tempo de queda para cada palavra */
 #welcome-message .word:nth-child(1) { animation-delay: 0.2s; }
 #welcome-message .word:nth-child(2) { animation-delay: 0.4s; }
 #welcome-message .word:nth-child(3) { animation-delay: 0.6s; }
@@ -103,8 +103,7 @@ body.page-loaded {
 #transition-message .letter:nth-child(11) { animation-delay: 1s; }
 
 
-
-/* Barra lateral cibernética com ajuste para a borda */
+/* Barra lateral cibernética */
 .sidebar {
   width: 250px;
   height: 100vh;
@@ -116,11 +115,11 @@ body.page-loaded {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  border-right: 2px solid transparent; /* Ajuste inicial para a borda */
+  border-right: 2px solid transparent; /* Ajuste da borda */
   transition: all 1s ease; /* Transição suave para expandir/contrair a sidebar */
 }
 
-/* Borda de glow com ajuste para suavizar as cores */
+/* Borda de glow para suavizar as cores */
 .sidebar::before {
   content: '';
   position: absolute;

@@ -28,7 +28,7 @@ const interval = setInterval(() => {
     i++;
   } else {
     clearInterval(interval); // Para quando todas as letras forem exibidas
-    if (callback) callback(); // Executa callback se existir
+    if (callback) callback(); // Executa callback
   }
 }, speed);
 }
@@ -43,7 +43,7 @@ const interval = setInterval(() => {
     i--;
   } else {
     clearInterval(interval); // Para quando todas as letras forem removidas
-    if (callback) callback(); // Executa callback se necessário
+    if (callback) callback(); // Executa callback
   }
 }, speed);
 }
