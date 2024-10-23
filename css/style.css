@@ -1,6 +1,11 @@
-/* Fonte técnica e moderna */
+/* ============================ */
+/* Importação de Fontes          */
+/* ============================ */
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500&display=swap');
 
+/* ============================ */
+/* Mensagem de Boas-Vindas       */
+/* ============================ */
 #welcome-message {
   position: fixed;
   top: 50%;
@@ -24,7 +29,9 @@
   margin: 0 5px;
 }
 
-/* Animação para as palavras caindo */
+/* ============================ */
+/* Animação: Mensagem de Boas-Vindas */
+/* ============================ */
 @keyframes wordDrop {
   0% {
     opacity: 0;
@@ -47,12 +54,23 @@
 #welcome-message .word:nth-child(8) { animation-delay: 1.6s; }
 #welcome-message .word:nth-child(9) { animation-delay: 1.8s; }
 
-/* Suaviza o carregamento do site */
-body.page-loaded {
-  opacity: 1;
-  transition: opacity 1s ease-in-out;
+/* ============================ */
+/* Transição Suave de Página     */
+/* ============================ */
+.page-container {
+  transform: translateX(100%); /* Começa fora da tela, à direita */
+  transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out; /* Controla a suavidade */
+  opacity: 0; /* A página começa invisível */
 }
 
+body.page-loaded .page-container {
+  transform: translateX(0); /* Move para o centro da tela */
+  opacity: 1; /* Página visível */
+}
+
+/* ============================ */
+/* Mensagem de Transição         */
+/* ============================ */
 #transition-message {
   position: fixed;
   top: 50%;
@@ -78,7 +96,9 @@ body.page-loaded {
   margin: 0 2px; /* Espaçamento entre as letras */
 }
 
-/* Animação para as letras surgindo da esquerda */
+/* ============================ */
+/* Animação: Letras de Transição */
+/* ============================ */
 @keyframes slideIn {
   0% {
     opacity: 0;
@@ -102,8 +122,9 @@ body.page-loaded {
 #transition-message .letter:nth-child(10) { animation-delay: 0.9s; }
 #transition-message .letter:nth-child(11) { animation-delay: 1s; }
 
-
-/* Barra lateral cibernética */
+/* ============================ */
+/* Barra Lateral (Sidebar)       */
+/* ============================ */
 .sidebar {
   width: 250px;
   height: 100vh;
@@ -119,7 +140,6 @@ body.page-loaded {
   transition: all 1s ease; /* Transição suave para expandir/contrair a sidebar */
 }
 
-/* Borda de glow para suavizar as cores */
 .sidebar::before {
   content: '';
   position: absolute;
@@ -129,22 +149,22 @@ body.page-loaded {
   width: 2px; /* Ajuste a largura da borda */
   background: linear-gradient(180deg, #00ffcc, #ff3366);
   box-shadow: 0 0 8px rgba(0, 255, 204, 0.7); /* Ajuste o brilho e a sombra */
-  transition: background 0.5s ease, box-shadow 0.5s ease; /* Suaviza a transição */
+  transition: background 0.5s ease, box-shadow 0.5s ease;
 }
 
-/* Quando o mouse está sobre a sidebar, a cor da borda muda */
 .sidebar:hover::before {
   background: linear-gradient(180deg, #ff3366, #ff3366); /* Cor vermelha */
   box-shadow: 0 0 8px rgba(255, 51, 102, 0.7); /* Brilho vermelho */
 }
 
-/* Efeito de expansão lateral ao passar o mouse */
 .sidebar:hover {
   transform: translateX(15px); /* Move a sidebar 15px para fora ao passar o mouse */
-  transition: transform 1s ease-in-out; /* Transição mais suave */
+  transition: transform 1s ease-in-out;
 }
 
-/* Itens de navegação */
+/* ============================ */
+/* Itens da Navegação Lateral    */
+/* ============================ */
 .sidebar ul {
   list-style-type: none;
   padding: 0;
@@ -159,19 +179,17 @@ body.page-loaded {
   color: #00ffcc;
   text-decoration: none;
   font-size: 18px;
-  transition: all 1s ease-in-out; /* Transição suave para o hover */
+  transition: all 1s ease-in-out;
   padding: 10px 15px;
   display: block;
   position: relative;
 }
 
-/* Efeito de hover e expansão ao passar o mouse */
 .sidebar ul li a:hover {
   transform: translateX(12px); /* Expande 12px para fora ao passar o mouse nos links */
-  transition: transform 1s ease-in-out; /* Transição suave para o efeito de hover */
+  transition: transform 1s ease-in-out;
 }
 
-/* Efeito de hover e seção ativa */
 .sidebar ul li a:hover, .sidebar ul li a.active {
   background: rgba(0, 255, 204, 0.1);
   color: #ff3366;
@@ -179,16 +197,25 @@ body.page-loaded {
   text-shadow: 0 0 5px #ff3366;
 }
 
-/* Cursor piscando para a palavra ativa */
 .sidebar ul li a.active::after {
   content: '|'; /* Cursor piscante */
   position: absolute;
   right: -2px;
-  animation: blink-caret 0.75s step-end infinite; /* Animação do cursor */
+  animation: blink-caret 0.75s step-end infinite;
 }
 
+/* ============================ */
+/* Animação do Cursor Piscante   */
+/* ============================ */
+@keyframes blink-caret {
+  50% {
+    opacity: 0;
+  }
+}
 
-/* Seções do conteúdo */
+/* ============================ */
+/* Seções de Conteúdo            */
+/* ============================ */
 section {
   margin-left: 270px;
   padding: 30px;
@@ -197,7 +224,7 @@ section {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
 }
 
-/* Títulos com estilo cibernético */
+/* Títulos */
 h2 {
   font-size: 28px;
   color: #00ffcc;
@@ -206,7 +233,9 @@ h2 {
   text-shadow: 0 0 5px #00ffcc;
 }
 
-/* Links de download e hover */
+/* ============================ */
+/* Links de Download e Hover     */
+/* ============================ */
 .download-btn, a {
   color: #00ffcc;
   font-weight: bold;
@@ -218,13 +247,17 @@ h2 {
   transition: color 0.3s ease-in-out;
 }
 
-/* Ajustes para imagens e GIFs */
+/* ============================ */
+/* Imagens e GIFs                */
+/* ============================ */
 .about-gif img {
   max-width: 350px;
   height: auto;
 }
 
-/* Responsividade */
+/* ============================ */
+/* Responsividade                */
+/* ============================ */
 @media (max-width: 768px) {
   .sidebar {
     width: 80px;
@@ -239,65 +272,23 @@ h2 {
   }
 }
 
-/* Fonte e estilo da sidebar com efeito de escrita */
+/* ============================ */
+/* Fonte e Estilo da Sidebar     */
+/* ============================ */
 .typewriter {
   font-family: 'Roboto Mono', monospace;
   color: #00ffcc;
-  white-space: nowrap; /* Evita quebra de linha */
-  overflow: hidden; /* Esconde o texto que ainda não foi mostrado */
+  white-space: nowrap;
+  overflow: hidden;
   display: inline-block;
-  padding-right: 5px; /* Ajuste para o padding */
+  padding-right: 5px;
   position: relative;
-  transition: all 1s ease-in-out; /* Transição suave */
+  transition: all 1s ease-in-out;
 }
 
-/* Cursor piscando para a palavra ativa */
 .typewriter.active::after {
-  content: '|'; /* Cursor piscante */
+  content: '|';
   position: absolute;
   right: -2px;
-  animation: blink-caret 0.75s step-end infinite; /* Animação do cursor */
-}
-
-/* Animação do cursor piscante */
-@keyframes blink-caret {
-  50% {
-    opacity: 0;
-  }
-}
-
-/* Transição suave de página */
-.page-container {
-  transform: translateX(100%); /* Inicia fora da tela, à direita */
-  transition: transform 0.8s ease-in-out; /* Transição suave ao entrar e sair */
-  opacity: 0;
-}
-
-body.page-loaded .page-container {
-  transform: translateX(0); /* Move para o centro da tela */
-  opacity: 1;
-  transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
-}
-
-/* Animação de entrada da esquerda para a direita */
-@keyframes slideInFromLeft {
-  0% {
-    transform: translateX(-100%); /* Começa fora da tela à esquerda */
-    opacity: 0; /* Invisível no início */
-  }
-  100% {
-    transform: translateX(0); /* Entra na tela */
-    opacity: 1; /* Totalmente visível ao final */
-  }
-}
-
-/* Aplica a animação de transição para cada página ao ser carregada */
-.page-container {
-  animation: slideInFromLeft 0.8s ease-in-out; /* Duração de 0.8s para a animação */
-}
-
-/* Ajuste para garantir que o conteúdo da página inicie invisível e depois apareça */
-body.page-loaded .page-container {
-  opacity: 1;
-  transition: opacity 0.5s ease-in-out; /* Suaviza a transição de visibilidade */
+  animation: blink-caret 0.75s step-end infinite;
 }
