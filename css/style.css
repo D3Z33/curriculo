@@ -54,13 +54,13 @@
 #welcome-message .word:nth-child(8) { animation-delay: 1.6s; }
 #welcome-message .word:nth-child(9) { animation-delay: 1.8s; }
 
-/* ============================ */
-/* Transição Suave de Página     */
-/* ============================ */
+
+/* Transição Suave de Página */
 .page-container {
-  transform: translateX(100%); /* Começa fora da tela, à direita */
-  transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out; /* Controla a suavidade */
-  opacity: 0; /* A página começa invisível */
+  transform: translateX(100%);
+  transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
+  opacity: 0;
+  position: relative; /* Garante que a página se mova de forma independente da sidebar */
 }
 
 body.page-loaded .page-container {
@@ -68,9 +68,8 @@ body.page-loaded .page-container {
   opacity: 1; /* Página visível */
 }
 
-/* ============================ */
-/* Mensagem de Transição         */
-/* ============================ */
+
+/* Mensagem de Transição */
 #transition-message {
   position: fixed;
   top: 50%;
@@ -84,9 +83,9 @@ body.page-loaded .page-container {
   padding: 20px;
   border-radius: 10px;
   opacity: 0;
-  z-index: 9999;
+  z-index: 998; /* Reduzido para ficar abaixo da sidebar */
   display: flex;
-  transition: opacity 1s ease-in-out;
+  transition: opacity 0.1s ease-in-out;
 }
 
 #transition-message .letter {
@@ -96,9 +95,8 @@ body.page-loaded .page-container {
   margin: 0 2px; /* Espaçamento entre as letras */
 }
 
-/* ============================ */
+
 /* Animação: Letras de Transição */
-/* ============================ */
 @keyframes slideIn {
   0% {
     opacity: 0;
@@ -122,9 +120,8 @@ body.page-loaded .page-container {
 #transition-message .letter:nth-child(10) { animation-delay: 0.9s; }
 #transition-message .letter:nth-child(11) { animation-delay: 1s; }
 
-/* ============================ */
-/* Barra Lateral (Sidebar)       */
-/* ============================ */
+
+/* Barra Lateral (Sidebar) */
 .sidebar {
   width: 250px;
   height: 100vh;
@@ -137,7 +134,8 @@ body.page-loaded .page-container {
   flex-direction: column;
   justify-content: flex-start;
   border-right: 2px solid transparent; /* Ajuste a borda */
-  transition: all 1s ease; /* Transição suave para expandir/contrair a sidebar */
+  transition: all 1.5s ease; /* Transição suave para expandir/contrair a sidebar */
+  z-index: 1000;
 }
 
 .sidebar::before {
@@ -149,7 +147,7 @@ body.page-loaded .page-container {
   width: 2px; /* Ajuste a largura da borda */
   background: linear-gradient(180deg, #00ffcc, #ff3366);
   box-shadow: 0 0 8px rgba(0, 255, 204, 0.7); /* Ajuste o brilho e a sombra */
-  transition: background 0.5s ease, box-shadow 0.5s ease;
+  transition: background 1s ease, box-shadow 0.5s ease;
 }
 
 .sidebar:hover::before {
@@ -162,9 +160,7 @@ body.page-loaded .page-container {
   transition: transform 1s ease-in-out;
 }
 
-/* ============================ */
-/* Itens da Navegação Lateral    */
-/* ============================ */
+/* Itens da Navegação Lateral */
 .sidebar ul {
   list-style-type: none;
   padding: 0;
@@ -204,18 +200,15 @@ body.page-loaded .page-container {
   animation: blink-caret 0.75s step-end infinite;
 }
 
-/* ============================ */
-/* Animação do Cursor Piscante   */
-/* ============================ */
+/* Animação do Cursor Piscante */
 @keyframes blink-caret {
   50% {
     opacity: 0;
   }
 }
 
-/* ============================ */
-/* Seções de Conteúdo            */
-/* ============================ */
+/* Seções de Conteúdo */
+
 section {
   margin-left: 270px;
   padding: 30px;
@@ -233,9 +226,7 @@ h2 {
   text-shadow: 0 0 5px #00ffcc;
 }
 
-/* ============================ */
-/* Links de Download e Hover     */
-/* ============================ */
+/* Links de Download e Hover */
 .download-btn, a {
   color: #00ffcc;
   font-weight: bold;
@@ -247,17 +238,13 @@ h2 {
   transition: color 0.3s ease-in-out;
 }
 
-/* ============================ */
-/* Imagens e GIFs                */
-/* ============================ */
+/* Imagens e GIFs */
 .about-gif img {
   max-width: 350px;
   height: auto;
 }
 
-/* ============================ */
-/* Responsividade                */
-/* ============================ */
+/* Responsividade */
 @media (max-width: 768px) {
   .sidebar {
     width: 80px;
@@ -272,9 +259,7 @@ h2 {
   }
 }
 
-/* ============================ */
-/* Fonte e Estilo da Sidebar     */
-/* ============================ */
+/* Fonte e Estilo da Sidebar */
 .typewriter {
   font-family: 'Roboto Mono', monospace;
   color: #00ffcc;
