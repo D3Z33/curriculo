@@ -115,7 +115,7 @@ body.page-loaded {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  border-right: 2px solid transparent; /* Ajuste da borda */
+  border-right: 2px solid transparent; /* Ajuste a borda */
   transition: all 1s ease; /* Transição suave para expandir/contrair a sidebar */
 }
 
@@ -264,4 +264,40 @@ h2 {
   50% {
     opacity: 0;
   }
+}
+
+/* Transição suave de página */
+.page-container {
+  transform: translateX(100%); /* Inicia fora da tela, à direita */
+  transition: transform 0.8s ease-in-out; /* Transição suave ao entrar e sair */
+  opacity: 0;
+}
+
+body.page-loaded .page-container {
+  transform: translateX(0); /* Move para o centro da tela */
+  opacity: 1;
+  transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
+}
+
+/* Animação de entrada da esquerda para a direita */
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%); /* Começa fora da tela à esquerda */
+    opacity: 0; /* Invisível no início */
+  }
+  100% {
+    transform: translateX(0); /* Entra na tela */
+    opacity: 1; /* Totalmente visível ao final */
+  }
+}
+
+/* Aplica a animação de transição para cada página ao ser carregada */
+.page-container {
+  animation: slideInFromLeft 0.8s ease-in-out; /* Duração de 0.8s para a animação */
+}
+
+/* Ajuste para garantir que o conteúdo da página inicie invisível e depois apareça */
+body.page-loaded .page-container {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out; /* Suaviza a transição de visibilidade */
 }
